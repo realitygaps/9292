@@ -1,4 +1,4 @@
-package com.gpls.ov;
+package com.gpls.ns;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,17 +26,17 @@ public class MainActivity extends Activity {
         webSettings.setJavaScriptEnabled(true);
         // Enable localStorage
         webSettings.setDomStorageEnabled(true);
-        // Ensure that 9292 links open in this app, and others open elsewhere
+        // Ensure that NS links open in this app, and others open elsewhere
         mainWebView.setWebViewClient(new MyCustomWebViewClient());
         // Load up the root site!
-        mainWebView.loadUrl("http://m.9292.nl");
+        mainWebView.loadUrl("http://m.ns.nl");
     }
 
     private class MyCustomWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            // If navigating to 9292, just load the URL
-            if (Uri.parse(url).getHost().equals("m.9292.nl")) {
+            // If navigating to NS, just load the URL
+            if (Uri.parse(url).getHost().equals("m.ns.nl")) {
                 return false;
             }
             // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
